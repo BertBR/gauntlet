@@ -35,12 +35,16 @@
       "import": "./dist/index.js"
     },
     "./scenarios": {
-      "types": "./dist/scenarios.js",
+      "types": "./dist/scenarios.d.ts",
       "import": "./dist/scenarios.js"
     },
     "./adapters/openai": {
-      "types": "./dist/openai.js",
+      "types": "./dist/openai.d.ts",
       "import": "./dist/openai.js"
+    },
+    "./adapters/gemini": {
+      "types": "./dist/gemini.d.ts",
+      "import": "./dist/gemini.js"
     }
   },
   "files": [
@@ -54,20 +58,26 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "example": "tsx examples/basic.ts",
+    "example:gemini": "tsx examples/gemini.ts",
     "prepublishOnly": "npm run typecheck && npm run test && npm run build"
   },
   "engines": {
     "node": ">=20"
   },
   "peerDependencies": {
+    "@google/genai": ">=0.7.0",
     "openai": ">=4.0.0"
   },
   "peerDependenciesMeta": {
+    "@google/genai": {
+      "optional": true
+    },
     "openai": {
       "optional": true
     }
   },
   "devDependencies": {
+    "@google/genai": "^0.7.0",
     "@types/node": "^22.10.5",
     "openai": "^4.77.0",
     "tsup": "^8.3.5",

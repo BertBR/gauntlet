@@ -107,7 +107,17 @@ interface ModelAdapter {
 }
 ```
 
-A built-in adapter ships for OpenAI. Anything that talks to a chat-completions-shaped API is a small wrapper. Adapters for Gemini, OpenRouter, and Anthropic are on the roadmap.
+Built-in adapters ship for **OpenAI** and **Google Gemini**. Anything that talks to a chat-completions-shaped API is a small wrapper. Adapters for OpenRouter and Anthropic are on the roadmap.
+
+```ts
+import { GoogleGenAI } from '@google/genai';
+import { geminiAdapter } from '@bertbr/gauntlet/adapters/gemini';
+
+const target = geminiAdapter({
+  client: new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY }),
+  model: 'gemini-2.0-flash-001'
+});
+```
 
 You can also pass a separate `judgeAdapter` to `runSuite` if you want the judge to run on a smaller or cheaper model than the target.
 

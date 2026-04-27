@@ -4,7 +4,8 @@ export default defineConfig({
   entry: {
     index: 'src/index.ts',
     scenarios: 'src/scenarios/index.ts',
-    openai: 'src/adapters/openai.ts'
+    openai: 'src/adapters/openai.ts',
+    gemini: 'src/adapters/gemini.ts'
   },
   format: ['esm'],
   dts: true,
