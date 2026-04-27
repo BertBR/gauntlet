@@ -133,6 +133,10 @@ import {
 
 `0.1.x`. The shape of `defineScenario` and `runSuite` is stable. Built-in scenarios may grow. The judge implementation is intentionally simple and is expected to evolve — current refusal detection is regex-based, with a roadmap to a small classifier.
 
+## Name
+
+"Run the gauntlet" — pass between two lines of attackers, one after another, and see if you make it through. Each scenario in this library is one of those attackers. Your prompt is what runs.
+
 ## License
 
 MIT, see [LICENSE](./LICENSE).
