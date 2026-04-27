@@ -13,8 +13,9 @@ if (!apiKey) {
   throw new Error('GEMINI_API_KEY (or GOOGLE_API_KEY) is required to run this example');
 }
 
+const model = process.env.GEMINI_MODEL ?? 'gemini-2.0-flash-001';
 const client = new GoogleGenAI({ apiKey });
-const target = geminiAdapter({ client, model: 'gemini-2.0-flash-001' });
+const target = geminiAdapter({ client, model });
 
 const baseMessages = [
   {
@@ -24,12 +25,14 @@ const baseMessages = [
   }
 ];
 
-const result = await runSuite(
-  baseMessages,
-  [promptInjection, dataExfiltration, offTopic, consentRefusal],
-  target,
-  { selfConsistency: 3 }
-);
+const selfConsistency = Number(process.env.GAUNTLET_RUNS ?? 3);
+const includeJudgeScenarios = process.env.GAUNTLET_SKIP_JUDGE !== '1';
+
+const scenarios = includeJudgeScenarios
+  ? [promptInjection, dataExfiltration, offTopic, consentRefusal]
+  : [promptInjection, dataExfiltration, consentRefusal];
+
+const result = await runSuite(baseMessages, scenarios, target, { selfConsistency });
 
 console.log(`${result.passed}/${result.total} scenarios passed in ${result.durationMs}ms`);
 
