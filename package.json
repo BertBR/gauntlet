@@ -1,6 +1,6 @@
 {
   "name": "@bertbr/gauntlet",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Production prompt regression testing for agentic flows",
   "license": "MIT",
   "author": "Vinícius Nascimento <viniciusmvn@pm.me> (https://playsonora.com)",
