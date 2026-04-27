@@ -1,5 +1,9 @@
 # gauntlet
 
+[![npm](https://img.shields.io/npm/v/@bertbr/gauntlet.svg)](https://www.npmjs.com/package/@bertbr/gauntlet)
+[![npm downloads](https://img.shields.io/npm/dm/@bertbr/gauntlet.svg)](https://www.npmjs.com/package/@bertbr/gauntlet)
+[![license](https://img.shields.io/npm/l/@bertbr/gauntlet.svg)](./LICENSE)
+
 Production prompt regression testing for agentic flows.
 
 LLM-as-judge over a small set of red-team scenarios — prompt injection, data exfiltration, off-topic drift, step-skipping, consent refusal — with optional self-consistency runs. Catches prompt regressions before deploy.
