@@ -1,0 +1,78 @@
+{
+  "name": "@bertbr/gauntlet",
+  "version": "0.1.0",
+  "description": "Production prompt regression testing for agentic flows",
+  "license": "MIT",
+  "author": "Vinícius Nascimento <viniciusmvn@pm.me> (https://playsonora.com)",
+  "homepage": "https://github.com/BertBR/gauntlet",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BertBR/gauntlet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BertBR/gauntlet/issues"
+  },
+  "keywords": [
+    "llm",
+    "eval",
+    "evaluation",
+    "prompt",
+    "regression",
+    "agent",
+    "agentic",
+    "openai",
+    "gemini",
+    "red-team",
+    "llm-as-judge"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./scenarios": {
+      "types": "./dist/scenarios.js",
+      "import": "./dist/scenarios.js"
+    },
+    "./adapters/openai": {
+      "types": "./dist/openai.js",
+      "import": "./dist/openai.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "example": "tsx examples/basic.ts",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "peerDependencies": {
+    "openai": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "openai": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "openai": "^4.77.0",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  }
+}
